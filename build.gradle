@@ -28,7 +28,10 @@ test {
 
 sonarqube {
     properties {
-        property 'sonar.host.url', 'http://3.110.169.100:9000'
-        property 'sonar.login', '******'
+        // Dynamically fetch the SonarQube host URL from environment variable or default to localhost
+        property 'sonar.host.url', System.getenv('SONAR_HOST_URL') ?: 'http://localhost:9000'
+        
+        // Dynamically fetch the SonarQube login token from environment variable or set it manually
+        property 'sonar.login', System.getenv('SONAR_LOGIN') ?: 'default-sonar-token'
     }
 }
