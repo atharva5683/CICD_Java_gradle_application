@@ -8,7 +8,10 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+
+// Update Java compatibility to Java 17
+sourceCompatibility = '17'
+targetCompatibility = '17'
 
 repositories {
     mavenCentral()
@@ -25,9 +28,10 @@ test {
     useJUnitPlatform()
 }
 
+// SonarQube configuration with dynamic project key and secure token from environment variables
 sonarqube {
     properties {
-        property 'sonar.host.url', 'http://3.110.169.100:9000'
-        property 'sonar.login', System.getenv('SONAR_TOKEN')  // Secure the token using environment variables
+        property 'sonar.host.url', 'http://3.110.169.100:9000'  // Update if necessary
+        property 'sonar.login', System.getenv('SONAR_TOKEN')  // Secure token from environmen
     }
 }
