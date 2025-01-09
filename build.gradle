@@ -32,6 +32,6 @@ test {
 sonarqube {
     properties {
         property 'sonar.host.url', 'http://3.110.169.100:9000'  // Update if necessary
-        property 'sonar.login', System.getenv('SONAR_TOKEN')  // Secure token from environme
+        property 'sonar.login', '******' // Secure token from environme
     }
 }
