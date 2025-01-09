@@ -31,7 +31,9 @@ test {
 // SonarQube configuration with dynamic project key and secure token from environment variables
 sonarqube {
     properties {
-        property 'sonar.host.url', 'http://3.110.169.100:9000'  // Update if necessary
-        property 'sonar.login', 'squ_dcab12b8c2d7158bdbc0912bb0e5f20d936bd6d2' // Secure token from environme
+        property 'sonar.host.url', 'http://3.110.169.100:9000'  // Update with the correct SonarQube server URL
+        property 'sonar.login', System.getenv('SONAR_TOKEN')  // Secure token from environment variable
+        property 'sonar.projectKey', 'CICD_Java_gradle_application'  // Replace with your project's unique key
+        property 'sonar.projectName', 'CICD_Java_gradle_application' // Replace with your project's name
     }
 }
